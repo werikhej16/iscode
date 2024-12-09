@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Health Connect - home</title>
+    <link rel="icon" type="image/x-icon" href="Images/logo.png" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[green] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111417]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[#111417] text-lg font-bold leading-tight tracking-[-0.015em]">Health Connect</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111417] text-sm font-medium leading-normal" href="about.html">About</a>
+              <a class="text-[#111417] text-sm font-medium leading-normal" href="doctor.html">Find Doctors</a>
+              <a class="text-[#111417] text-sm font-medium leading-normal" href="payment.html">Payment</a>
+            </div>
+            <div class="flex gap-2">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#3889e5] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate"><a class="text-[#111417] text-sm font-medium leading-normal" href="login.html">Log in</a>
+                </span>
+              </button>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#f0f2f4] text-[#111417] text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate"><a class="text-[#111417] text-sm font-medium leading-normal" href="login.html">Sign up</a>
+                </span>
+              </button>
+            </div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("Images/Opt1.jpg");'
+                >
+                  <div class="flex flex-col gap-2 text-left">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                      Get the care you need, where you are
+                    </h1>
+                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      Health Connect helps you manage your health and get the care you need, when you need it. All from the comfort of your home
+                    </h2>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#3889e5] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                  >
+                    <span class="truncate">Start your health journey</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-10 px-4 py-10 @container">
+              <div class="flex flex-col gap-4">
+                <h1
+                  class="text-[#111417] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                >
+                  How Health Connect works
+                </h1>
+                <p class="text-[#111417] text-base font-normal leading-normal max-w-[720px]">
+                  We're more than just a telemedicine company. Health Connect is a complete health care platform that lets you manage your health in one convenient place. From
+                  seeing a doctor online to tracking your symptoms over time, we give you the tools you need to take control of your health
+                </p>
+              </div>
+              <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
+                <div class="flex flex-col gap-3 pb-3">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                    style='background-image: url("Images/Part1.jpg");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111417] text-base font-medium leading-normal">See a doctor or therapist online</p>
+                    <p class="text-[#647487] text-sm font-normal leading-normal">Connect with board-certified doctors, licensed therapists, and medical experts from local hospitals</p>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-3 pb-3">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                    style='background-image: url("Images/Part2.webp");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111417] text-base font-medium leading-normal">Get help with prescriptions and refills</p>
+                    <p class="text-[#647487] text-sm font-normal leading-normal">Fill, manage, and transfer prescriptions from certified medical personnel</p>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-3 pb-3">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                    style='background-image: url("Images/Part3.webp");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111417] text-base font-medium leading-normal">Track and understand your health</p>
+                    <p class="text-[#647487] text-sm font-normal leading-normal">Log and monitor your health data over time, so you can see changes and trends</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("Images/health1.jpeg");'
+                >
+                  <div class="flex flex-col gap-2 text-left">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                      Take control of your health today
+                    </h1>
+                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      Health Connect is here to support you every step of the way
+                    </h2>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#3889e5] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                  >
+                    <span class="truncate">Join Health Connect now</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="contact-container">
+              <h1><bold>Emergency Contacts</bold></h1>              
+              <div class="contact">
+                <h2>Ambulance Service</h2>
+                <p><strong>Phone:</strong> <a href="tel:+254701234567">+254 701 234 567</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+254701234568">+254 776 938 889</a></p>
+              </div>
+              <div class="contact">
+                <h2>Police Department</h2>
+                <p><strong>Phone:</strong> <a href="tel:+254701234569">+254 114 550 550</a></p>
+              </div>
+            </div>
+            <footer class="flex justify-between items-center px-4 py-10 border-t border-solid border-t-[#f0f2f4]">
+              <div class="text-[#647487] text-sm font-normal leading-normal">&copy; 2024 Health Connect</div>
+              <div class="flex gap-4">
+                <a class="text-[#647487] text-sm font-normal leading-normal" href="#">Privacy Policy</a>
+                <a class="text-[#647487] text-sm font-normal leading-normal" href="#">Terms of Service</a>
+                <a class="text-[#647487] text-sm font-normal leading-normal" href="#">Contact Us</a>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

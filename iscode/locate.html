@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+    <title>Health Connect - locate</title>
+    <link rel="icon" type="image/x-icon" href="Images/logo.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script>
+      let map;
+      let searchBox;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -1.286389, lng: 36.817223 },
+          zoom: 12,
+        });
+
+        const input = document.getElementById("search-input");
+        const searchBox = new google.maps.places.SearchBox(input);
+
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        map.addListener("bounds_changed", () => {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        searchBox.addListener("places_changed", () => {
+          const places = searchBox.getPlaces();
+
+          if (places.length === 0) {
+            return;
+          }
+
+          const bounds = new google.maps.LatLngBounds();
+          places.forEach((place) => {
+            if (!place.geometry || !place.geometry.location) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+
+            const marker = new google.maps.Marker({
+              map,
+              title: place.name,
+              position: place.geometry.location,
+            });
+
+            if (place.geometry.viewport) {
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      }
+    </script>
+  </head>
+  <body onload="initMap()">
+    <div class="relative flex size-full min-h-screen flex-col bg-[#f8fafb] group/design-root overflow-x-hidden" style='font-family: Manrope, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e8edf3] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#0e141b]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+              </svg>
+            </div>
+            <h2 class="text-[#0e141b] text-lg font-bold leading-tight tracking-[-0.015em]">Health Connect</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+                <div class="text-[#4f7096] flex border-none bg-[#e8edf3] items-center justify-center pl-4 rounded-l-xl border-r-0" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                  </svg>
+                </div>
+                <input id="search-input" placeholder="Search" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0e141b] focus:outline-0 focus:ring-0 border-none bg-[#e8edf3] focus:border-none h-full placeholder:text-[#4f7096] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" value="" />
+              </div>
+            </label>
+            <div class="flex gap-2">
+              <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#e8edf3] text-[#0e141b] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                <div class="text-[#0e141b]" data-icon="MagnifyingGlass" data-size="20px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                  </svg>
+                </div>
+              </button>
+              <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#e8edf3] text-[#0e141b] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                <div class="text-[#0e141b]" data-icon="Bell" data-size="20px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://cdn.usegalileo.ai/stability/97fad5d8-34a4-48ae-8243-422c1939e199.png");'></div>
+          </div>
+        </header>
+        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col w-80">
+            <h2 class="text-[#0e141b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Hospitals</h2>
+            <div class="flex items-center gap-4 bg-[#f8fafb] px-4 min-h-14">
+              <p class="text-[#0e141b] text-base font-normal leading-normal flex-1 truncate">Nairobi West Hospital</p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#f8fafb] px-4 min-h-14">
+              <p class="text-[#0e141b] text-base font-normal leading-normal flex-1 truncate">Aga Khan University Hospital</p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#f8fafb] px-4 min-h-14">
+              <p class="text-[#0e141b] text-base font-normal leading-normal flex-1 truncate">Kenyatta National Hospital</p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#f8fafb] px-4 min-h-14">
+              <p class="text-[#0e141b] text-base font-normal leading-normal flex-1 truncate">Gertrude's Children's Hospital</p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#f8fafb] px-4 min-h-14">
+              <p class="text-[#0e141b] text-base font-normal leading-normal flex-1 truncate">P.C.E.A Kikuyu Mission Hospital</p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#f8fafb] px-4 min-h-14">
+              <p class="text-[#0e141b] text-base font-normal leading-normal flex-1 truncate">Coptic Hospital</p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#f8fafb] px-4 min-h-14">
+              <p class="text-[#0e141b] text-base font-normal leading-normal flex-1 truncate">Mater Hospital</p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#f8fafb] px-4 min-h-14">
+              <p class="text-[#0e141b] text-base font-normal leading-normal flex-1 truncate">Nairobi Hospital</p>
+            </div>
+          </div>
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container flex flex-col h-full flex-1">
+              <div class="flex flex-1 flex-col @[480px]:px-4 @[480px]:py-3">
+                <div id="map" class="min-h-[320px] flex-1 rounded-xl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+

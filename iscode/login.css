@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: "Manrope", "Noto Sans", sans-serif;
+  background-color: #f8fbfa;
+  color: #0e1b13;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  padding-bottom: 8px;
+  background-color: #f8fbfa;
+}
+
+header button {
+  display: flex;
+  align-items: center;
+  color: #0e1b13;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Login Section */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px;
+}
+
+h1 {
+  color: #0e1b13;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+form {
+  width: 100%;
+  max-width: 480px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+input {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  background-color: #e8f3ec;
+  color: #0e1b13;
+  padding: 0 16px;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: #50956d;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #1cca64;
+}
+
+p {
+  color: #50956d;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: underline;
+  margin: 4px 0 12px;
+}
+
+/* Buttons */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #1cca64;
+  color: #0e1b13;
+}
+
+button[type="button"] {
+  background-color: #e8f3ec;
+  color: #0e1b13;
+}
